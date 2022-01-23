@@ -1,18 +1,32 @@
 version: "3.7"
 
-# TODO change addres and port in database.py
-
 services: 
   mysql:
     image: "mysql:5.7"
-    # hostame: mysql
     container_name: mysql
+    volumes:
+      - ./mysql:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: "root"
       MYSQL_DATABASE: "TRFastApi"
-      MYSQL_USE: "NTR212"
+      MYSQL_USER: "NTR212"
       MYSQL_PASSWORD: "petclinic"
-      # TODO only for tests
-      # MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     ports:
       - 3306:3306
+    networks:
+      - local-net
+    
+  server:
+    links: 
+      - mysql
+    container_name: server
+    build: ./servises
+    image: server-api
+    ports:
+      - 5000:5000
+    networks:
+     - local-net
+
+networks:
+  local-net:
+    driver: bridge    
