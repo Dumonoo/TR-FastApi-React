@@ -1,0 +1,18 @@
+version: "3.7"
+
+# TODO change addres and port in database.py
+
+services: 
+  mysql:
+    image: "msql:5.7"
+    hostame: mysql
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "TRFastApi"
+      MYSQL_USE: "NTR212"
+      MYSQL_PASSWORD: "petclinic"
+      # TODO only for tests
+      # MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - 3306:3306
