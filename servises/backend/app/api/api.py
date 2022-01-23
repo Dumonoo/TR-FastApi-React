@@ -48,7 +48,7 @@ app.mount("/", StaticFiles(directory="build",html = True), name="build")
 
 @app.get("/", tags=["root"])
 async def read_root(db: Session = Depends(deps.get_db)) -> dict:
-    init_db(db)
+    # init_db(db)
     # return FileResponse('build/index.html')
 
     return {"message": "Return page"}

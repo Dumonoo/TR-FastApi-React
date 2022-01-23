@@ -44,6 +44,8 @@ async def whoami(userName: Optional[str] = Cookie(None), userId: Optional[str] =
 
 @router.get("/", response_model=List[schemas.user.User])
 async def get_users(skip: int = 0, limit: int = 100, db: Session = Depends(deps.get_db)):
+    from app.init_db import init_db
+    init_db(db)
     users = crud_user.get_users(db, skip=skip, limit=limit)
     return users
 
