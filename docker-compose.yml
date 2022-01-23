@@ -4,8 +4,8 @@ version: "3.7"
 
 services: 
   mysql:
-    image: "msql:5.7"
-    hostame: mysql
+    image: "mysql:5.7"
+    # hostame: mysql
     container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: "root"
