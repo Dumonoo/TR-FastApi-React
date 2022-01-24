@@ -15,6 +15,9 @@ from datetime import date
 def random_lower_string() -> str:
     return "".join(random.choices(string.ascii_lowercase, k=10))
 
+def random_project_code() -> str:
+    return "proj" + "".join(random.choices(string.ascii_lowercase, k=5)) + str(random.randint(0,12))
+
 def init_db(db: Session) -> None:
     initial_users = [
         {
@@ -73,7 +76,11 @@ def init_db(db: Session) -> None:
 
             # Projects
             for i in range(3):
-                db_project = Project(code=random_lower_string(), name="Project " + random_lower_string(), budget=124*60 ,description=random_lower_string(), owner_id=db_user.id)
+                code = random_project_code()
+                db_proj = db.query(Project).filter(Project.code == code).first()
+                if db_proj:
+                    code = random_project_code()
+                db_project = Project(code=code, name="Project " + random_lower_string(), budget= random.randint(20, 220) * 60 ,description=random_lower_string(), owner_id=db_user.id)
                 db.add(db_project)
                 db.commit()
                 db.refresh(db_project)
