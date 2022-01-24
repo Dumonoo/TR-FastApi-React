@@ -18,6 +18,7 @@ import DisplayProject from "./routes/forms/DisplayProject";
 import EditProject from "./routes/forms/EditProject";
 import EditActivity from "./routes/forms/EditActivity";
 import DisplayActivity from "./routes/forms/DisplayActivity";
+import Mainpage from "./routes/Mainpage";
 
 const colors = {
   brand: {
@@ -35,6 +36,7 @@ ReactDOM.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
+            <Route path="main" element={<Mainpage/>}/>
             <Route path="activities" element={<Activities/>}/>
             <Route path="projects" element={<Projects/>}/>
             <Route path="myProjects" element={<MyProjects/>}/>

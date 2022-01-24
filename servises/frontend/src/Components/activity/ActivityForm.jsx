@@ -127,7 +127,7 @@ function ActivityForm(props) {
                 timeSubmitted: parseInt(activityTime),
                 description: activityDescription,
                 project_id: projectCode,
-                subactivity_id: subActivityName
+                subactivity_id: subActivityName==""? undefined : subActivityName
             }
             if(action === 'edit'){
                 payload.id = entry.id
@@ -180,7 +180,7 @@ function ActivityForm(props) {
                             <Select value={projectCode} onChange={handleProjectCodeChange} disabled={!editable}>
                                 <option value={null}></option>
                                 {projects && projects.map((project) => (
-                                    <option value={project.id}>{project.code}</option>
+                                    <option key={project.id}value={project.id}>{project.code}</option>
                                 ))}
                             </Select>
 
@@ -199,7 +199,7 @@ function ActivityForm(props) {
                             <Select id="subactivity-name" value={subActivityName} onChange={handleSubActivityNameChange} disabled={!editable}>
                                 <option value={null}></option>
                                 {possibleSubactivities && possibleSubactivities.map((sub) => (
-                                    <option value={sub.id}>{sub.code}</option>
+                                    <option key={sub.id} value={sub.id}>{sub.code}</option>
                                 ))}
                             </Select>
                             <FormHelperText>

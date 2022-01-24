@@ -21,7 +21,7 @@ function LoginCard() {
                 toast({
                     title: "Succesfully logged in!"
                 })
-                navigate('/')
+                navigate('/main')
             }
         })
     }

@@ -112,7 +112,7 @@ function ActivityCard(props) {
         }
         else {
             toast({
-                title: `Something gone wrong: `,
+                title: `Nothing to report `,
                 status: 'error'
             })
         }
@@ -149,13 +149,13 @@ function ActivityCard(props) {
                     <Heading align='left' fontSize={'4xl'}>Your activities for: {selectedPeriod}</Heading>
                     <HStack spacing={4} alignItems='flex-end'>
                         <Select width='120px' onChange={handleChangeMonth}>
-                            {months.map((label) => (
-                                <option>{label}</option>
+                            {months.map((label, index) => (
+                                <option key={index}>{label}</option>
                             ))}
                         </Select>
                         <Select width='100px' onChange={handleChangeYear}>
                             {years.map((label) => (
-                                <option>{label}</option>
+                                <option key={parseInt(label)}>{label}</option>
                             ))}
                         </Select>
                         <Button width='120px' onClick={handleSubmitPeriod}>Submit Period</Button>
@@ -170,7 +170,7 @@ function ActivityCard(props) {
                     <HStack spacing={4}>
                         <Select width='100px' onChange={handleChangeDay}>
                             {possibleDays.map((label) => (
-                                <option>{label}</option>
+                                <option key={parseInt(label)}>{label}</option>
                             ))}
                         </Select>
                         <Button width='120px' onClick={handleSelectDay}>Show day</Button>

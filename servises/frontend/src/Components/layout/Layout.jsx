@@ -32,7 +32,7 @@ function Layout(props) {
             setUsername(response.data.User)
         })
         if(!userStatus){
-            navigate("/")
+            navigate("/main")
         }
     }, [userStatus, navigate])
     return (

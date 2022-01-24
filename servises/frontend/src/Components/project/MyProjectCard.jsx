@@ -62,7 +62,6 @@ function MyProjectCard() {
     return (
         <div className="myProjectCard">
             <MainLayout>
-
                 <HStack justifyContent='space-between' pb='2'>
                     <Heading align='left' fontSize={'4xl'}>My projects</Heading>
                 </HStack>

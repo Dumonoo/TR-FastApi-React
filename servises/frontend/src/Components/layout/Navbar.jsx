@@ -9,7 +9,7 @@ import {
 } from 'react-icons/fi';
 
 const LinkItems = [
-    { name: "Main Page", path: "/", icon: FiHome, key: 1 },
+    { name: "Main Page", path: "/main", icon: FiHome, key: 1 },
     { name: "My activities", path: "/activities", icon: FiBookmark, key: 2 },
     { name: "My projects", path: "/myProjects", icon: FiArchive, key: 3 },
     { name: "Projects", path: "/projects", icon: FiStar, key: 4 }

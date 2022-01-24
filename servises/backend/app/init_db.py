@@ -73,7 +73,7 @@ def init_db(db: Session) -> None:
 
             # Projects
             for i in range(3):
-                db_project = Project(code=random_lower_string(), name=random_lower_string(), budget=124*60 ,description=random_lower_string(), owner_id=db_user.id)
+                db_project = Project(code=random_lower_string(), name="Project " + random_lower_string(), budget=124*60 ,description=random_lower_string(), owner_id=db_user.id)
                 db.add(db_project)
                 db.commit()
                 db.refresh(db_project)
