@@ -10,6 +10,17 @@ Sposób uruchomienia:
 ```bash
 sudo docker-compose up
 ```
+* Czasem proces uruchamiania może chwilę potrwać ponieważ docker oczekuje na poprawne uruchomienie bazy danych 
+
+W przypadku przebudowywania:
+```bash
+sudo docker-compose up --build
+```
+
+W przypadku usuwania:
+```bash
+sudo docker-compose down -v
+```
 
 Podstawowe wymagania:
 - [x] Korzystanie z kompoenentów funkcyjnych

@@ -44,7 +44,10 @@ async def update_entry(entry: schemas.entry.EntryUpdate, user_id: int, db: Sessi
 
 @router.delete("/deleteEntry/{entry_id}", response_model=bool)
 async def delete_entry(entry_id: int, db: Session = Depends(deps.get_db)):
-   return crud_entry.delete_entry(db=db, entry_id=entry_id)
+    db_entry = crud_entry.get_by_id(db=db, entry_id=entry_id)
+    if not db_entry:
+        raise HTTPException(status_code=404, detail="Not found") 
+    return crud_entry.delete_entry(db=db, entry_id=entry_id)
 
 
 @router.get("/getEntry/{entry_id}", response_model=schemas.entry.Entry)
